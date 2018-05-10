@@ -1,4 +1,7 @@
 <?php
+
+
+
     require("attachedDao.php");
     $dao = new attachedDao();
     
@@ -7,6 +10,11 @@
     
     $result = $dao->getFileList($sort, $dir);
 
+    /*error Message 출력하는 구문*/
+    error_reporting(E_ALL);
+    
+    ini_set("display_errors", 1);
+    
 ?>
 
 <!doctype html>
