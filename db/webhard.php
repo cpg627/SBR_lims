@@ -1,8 +1,13 @@
 <?php
 
 
-
     require("attachedDao.php");
+
+    /*error Message 출력하는 구문*/
+    error_reporting(E_ALL);
+    ini_set("display_errors", 1);
+
+    
     $dao = new attachedDao();
     
     $sort = isset($_REQUEST["sort"]) ? $_REQUEST["sort"] : "fname";
