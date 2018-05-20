@@ -27,5 +27,31 @@ class MemberDao{
         }
         
         //회원정보 추가
+        public function insertMember($id, $pw, $name){
+            try{
+                $query = $this->db->prepare("insert into member values (:id, :pw, :name");
+                
+                $query->bindvalue(":id", $id, PDO::PARAM_STR);
+                $query->bindvalue(":pw", $pw, PDO::PARAM_STR);
+                $query->bindvalue(":name", $name, PDO::PARAM_STR);
+                $query->excute();
+                
+            }catch(PDOException $e){
+                exit($e->getMessage());
+            }
+        }
         
+        //아이디가 $id인 회원 정보 업데이트
+        public function updateMember($id, $pw, $name){
+            try{
+                $query = $this->db->prepare("update member set pw=:pw, name:=name where id=:id");
+                $query->bindvalue(":id", $id, PDO::PARAM_STR);
+                $query->bindvalue(":pw", $pw, PDO::PARAM_STR);
+                $query->bindvalue(":name", $name, PDO::PARAM_STR);
+                $query->excute();
+                
+            }catch(PDOException $e){
+                exit($e->getMessage());
+            }
+        }
 }
