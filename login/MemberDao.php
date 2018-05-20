@@ -51,7 +51,7 @@ class MemberDao{
                 $query->excute();
                 
             }catch(PDOException $e){
-                exit($e->getMessage());
+                exit($e->getMessage());//ddd
             }
         }
 }
